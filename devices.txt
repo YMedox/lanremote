@@ -1,0 +1,352 @@
+Описания устройств для умного дома Яндекс и голосового шлюза ya_hub.
+Пульт управления Yamaha AVR:
+{
+  "name": "LAN Yamaha Remote",
+  "description": "LAN-пульт управления Yamaha",
+  "room": "гостиная",
+  "type": "devices.types.media_device.receiver",
+  "status_info": {
+    "reportable":false
+  },
+  "device_info": {
+  	"manufacturer": "Yamaha",
+  	"model": "RX-V575",
+  	"hw_version": "-",
+  	"sw_version": "-"
+   },
+   "request": {
+     "host": "exec:///your_path_to/lanremote Yamaha"
+   },
+   "api": {
+     "devices.capabilities.on_off": [
+       { 
+         "instance": "on",
+         "response": {
+           "Done" : true,
+           "Error": false
+         },
+         "query": {
+           "method": ""
+         },         
+         "action": {
+           "method": "",
+           "data_true":  "ON",
+           "data_false": "OFF"
+         }
+       },
+     ],
+     "devices.capabilities.toggle": [
+       { 
+         "instance": "mute",
+         "response": {
+           "Done" : true,
+           "Error": true
+         },
+         "query": {
+           "method": ""
+         },         
+         "action": {
+           "method": "",
+           "data_true":  "MUTE",
+           "data_false": "MUTE"
+         }
+       }
+     ],
+     "devices.capabilities.range": [
+       { 
+         "instance": "volume",
+         "response": {
+           "Done" : true,
+           "Error": true
+         },
+         "query": {
+           "method": ""
+         },         
+         "action": {
+           "method": "",
+           "data_1":  "VOLUMEUP",
+           "data_-1": "VOLUMEDOWN"
+         }
+       }
+     ],
+     "devices.capabilities.mode": [
+       { 
+         "instance": "input_source",
+         "response": {
+           "0" : "one",
+           "-1": "two"
+         },
+         "query": {
+           "method": "",
+           "data_": "1"
+         },         
+         "action": {
+           "method": "",
+           "data_one": "HDMI1",
+           "data_two": "HDMI2"
+         }
+       }
+     ]
+   },
+   "capabilities": [
+     {
+            "type": "devices.capabilities.on_off",
+            "retrievable": false,
+            "reportable": false,
+            "parameters": {
+               "split": true
+            }
+     },
+     {
+            "type": "devices.capabilities.toggle",
+            "retrievable": false,
+            "reportable": false,
+            "parameters": {
+               "instance": "mute"
+            }
+     },
+     {
+            "type": "devices.capabilities.range",
+            "retrievable": false,
+            "reportable": false,
+            "parameters": {
+               "instance": "volume",
+               "random_access": false,
+               "range": {
+                  "min": 1,
+                  "max": 50,
+                  "precision": 1
+               }
+            }
+     },
+     {
+                "type": "devices.capabilities.mode",
+                "retrievable": true,
+                "reportable": true,
+                "parameters": {
+                    "instance": "input_source",
+                    "modes": [
+                        {
+                            "value": "one"
+                        },
+                        {
+                            "value": "two"
+                        }
+                    ]
+                }
+      }
+   ]
+}
+
+Пульт управления Samsung TV:
+{
+  "name": "LAN Samsung Remote",
+  "description": "LAN-пульт управления ТВ Самсунг",
+  "room": "гостиная",
+  "type": "devices.types.media_device.tv",
+  "status_info": {
+    "reportable":false
+  },
+  "device_info": {
+  	"manufacturer": "Samsung",
+  	"model": "UE50F6800AB",
+  	"hw_version": "-",
+  	"sw_version": "-"
+   },
+   "request": {
+     "host": "exec:///your_path_to/lanremote Samsung"
+   },
+   "api": {
+     "devices.capabilities.on_off": [
+       { 
+         "instance": "on",
+         "response": {
+           "Done" : true,
+           "Error": false
+         },
+         "query": {
+           "method": ""
+         },         
+         "action": {
+           "method": "",
+           "data_true":  "OFF",
+           "data_false": "OFF"
+         }
+       },
+     ],
+     "devices.capabilities.toggle": [
+       { 
+         "instance": "mute",
+         "response": {
+           "Done" : true,
+           "Error": true
+         },
+         "query": {
+           "method": ""
+         },         
+         "action": {
+           "method": "",
+           "data_true":  "MUTE",
+           "data_false": "MUTE"
+         }
+       }
+     ],
+     "devices.capabilities.range": [
+       { 
+         "instance": "channel",
+         "response": {
+           "Done" : true,
+           "Error": true
+         },
+         "query": {
+           "method": ""
+         },         
+         "action": {
+           "method": "",
+           "data_1":  "CHANNELUP",
+           "data_-1": "CHANNELDOWN"
+         }
+       },
+       { 
+         "instance": "volume",
+         "response": {
+           "Done" : true,
+           "Error": true
+         },
+         "query": {
+           "method": ""
+         },         
+         "action": {
+           "method": "",
+           "data_1":  "VOLUMEUP",
+           "data_-1": "VOLUMEDOWN"
+         }
+       }
+     ],
+     "devices.capabilities.mode": [
+       { 
+         "instance": "input_source",
+         "response": {
+           "Done" : "one"
+         },
+         "query": {
+           "method": ""
+         },         
+         "action": {
+           "method": "",
+           "data_one": "TV",
+           "data_two": "HDMI"
+         }
+       }
+     ]
+   },
+   "capabilities": [
+     {
+            "type": "devices.capabilities.on_off",
+            "retrievable": false,
+            "reportable": false
+     },
+     {
+            "type": "devices.capabilities.toggle",
+            "retrievable": false,
+            "reportable": false,
+            "parameters": {
+               "instance": "mute"
+            }
+     },
+     {
+            "type": "devices.capabilities.range",
+            "retrievable": false,
+            "reportable": false,
+            "parameters": {
+               "instance": "volume",
+               "random_access": false,
+               "range": {
+                  "min": 1,
+                  "max": 50,
+                  "precision": 1
+               }
+            }
+     },
+     {
+            "type": "devices.capabilities.range",
+            "retrievable": false,
+            "reportable": false,
+            "parameters": {
+               "instance": "channel",
+               "random_access": false,
+               "range": {
+                  "min": 1,
+                  "max": 50,
+                  "precision": 1
+               }
+            }
+     },
+     {
+                "type": "devices.capabilities.mode",
+                "retrievable": true,
+                "reportable": true,
+                "parameters": {
+                    "instance": "input_source",
+                    "modes": [
+                        {
+                            "value": "one"
+                        },
+                        {
+                            "value": "two"
+                        }
+                    ]
+                }
+      }
+   ]
+}
+
+Виртуальный пульт для запуска сценария cinema.sh:
+{
+  "name": "Virtual cinema remote",
+  "description": "LAN-пульт управления кино",
+  "room": "гостиная",
+  "type": "devices.types.media_device.tv",
+  "status_info": {
+    "reportable":false
+  },
+  "device_info": {
+  	"manufacturer": "YM",
+  	"model": "Virtual remote",
+  	"hw_version": "-",
+  	"sw_version": "-"
+   },
+   "request": {
+     "host": "exec:///your_path_to/cinema.sh"
+   },
+   "api": {
+     "devices.capabilities.on_off": [
+       { 
+         "instance": "on",
+         "response": {
+           "Done" : true,
+           "Error": false
+         },
+         "query": {
+           "method": ""
+         },         
+         "action": {
+           "method": "",
+           "data_true":  "ON",
+           "data_false": "OFF"
+         }
+       },
+     ]
+   },
+   "capabilities": [
+     {
+            "type": "devices.capabilities.on_off",
+            "retrievable": false,
+            "reportable": false,
+            "parameters": {
+               "split": true
+            }
+     }
+   ]
+}
+
