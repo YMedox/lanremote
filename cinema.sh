@@ -1,14 +1,14 @@
 #!/bin/bash
 
 #команды
-cmd="your_path_to/lanremote -l"
-cmd_tv="your_path_to/send_ir.sh ON"
+cmd="/home/master/workspace/lanremote/bin/Release/lanremote"
+cmd_tv="/home/master/bin/send_ir.sh ON"
 cmd_firefox="firefox"
 #имена устройств из lanremote.conf
 samsung=Samsung
 yamaha=Yamaha
 #адрес телевизора
-IP_TV="192.168.0.100"
+IP_TV="192.168.2.203"
 #с каким сайтом открывать Firefox
 URL="kinopoisk.ru"
 
@@ -22,7 +22,7 @@ if [ "$1" = "ON" ]; then
       # Добавляем задержку для синхронизации
       sleep 0.5
       wmctrl -x -a "Navigator.Firefox" 2>/dev/null || echo "wmctrl failed"
-      $cmd_firefox --new-tab $URL
+      $cmd_firefox --new-tab $URL &
     else
       echo "Firefox не запущен, запускаем..."
       $cmd_firefox $URL &
@@ -33,7 +33,9 @@ if [ "$1" = "ON" ]; then
        echo "Телевизор выключен"
        #Включаем телевизор IR-пультом, потому что по сети телевизор недоступен, когда выключен
        $cmd_tv
-    fi  
+    fi
+    disown
+#exit 0
     #Включаем ресивер
     $cmd $yamaha ON
     sleep 5
