@@ -1,14 +1,14 @@
 #!/bin/bash
 
 #команды
-cmd="/home/master/workspace/lanremote/bin/Release/lanremote"
-cmd_tv="/home/master/bin/send_ir.sh ON"
+cmd="your_path_to/lanremote"
+cmd_tv="your_path_to/send_ir.sh ON"
 cmd_firefox="firefox"
 #имена устройств из lanremote.conf
 samsung=Samsung
 yamaha=Yamaha
 #адрес телевизора
-IP_TV="192.168.2.203"
+IP_TV="192.168.0.100"
 #с каким сайтом открывать Firefox
 URL="kinopoisk.ru"
 
